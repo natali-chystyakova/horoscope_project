@@ -1,0 +1,36 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Меню</title>#}
+{#</head>#}
+
+{% extends "_helpers/_base.html" %}
+
+{% load static %}
+
+
+{% block css_additional %}
+    <link
+            href="{% static "horoscope/css/index_zodiac.css" %}"
+            rel="stylesheet"
+    >
+{% endblock %}
+
+{%  block title %}
+
+    Horoscope
+{%  endblock  %}
+
+
+{% block content %}
+    <ul class="col my-element-ul-style">
+        {% for zodiac in zodiacs %}
+
+            <li class="col my-element-li-style"><a href="{% url "horoscope:horoscope_str" sign_zodiac=zodiac%}">{{ forloop.counter }} {{ zodiac| title }}</a></li>
+
+        {% endfor %}
+    </ul>
+
+
+{% endblock content %}
