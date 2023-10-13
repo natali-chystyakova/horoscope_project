@@ -1,0 +1,25 @@
+{% extends "_helpers/_base.html" %}
+{% load static %}
+
+{%  block title %}
+
+    All Actors
+{%  endblock  %}
+
+{% block content %}
+
+    <h2>List of all actors</h2>
+    <ul>
+        {% for actor in actors %}
+            <li> <a href="{{ actor.get_url }}"> {{ actor }}</a></li>
+            <li>
+                Фамилия - {{ actor.last_name }},
+                Имя - {{ actor.first_name }}
+            </li>
+
+
+
+        {% endfor %}
+
+    </ul>
+{% endblock content %}

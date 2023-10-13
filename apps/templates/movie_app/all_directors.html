@@ -1,0 +1,23 @@
+{% extends "_helpers/_base.html" %}
+{% load static %}
+
+{%  block title %}
+
+    All Directors
+{%  endblock  %}
+
+{% block content %}
+
+    <h2>List of all directors</h2>
+    <ul>
+        {% for director in directors %}
+            <li> <a href="{{ director.get_url }}">{{ director }}</a></li>
+            <li> Фамилия - {{ director.last_name }},
+                Имя - {{ director.first_name }},
+                Почта {{ director.director_email }}
+
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endblock content %}

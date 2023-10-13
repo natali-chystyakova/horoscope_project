@@ -1,0 +1,28 @@
+{% extends "_helpers/_base.html" %}
+{% load static %}
+
+{%  block title %}
+
+    Actor {{ actor.last_name }}
+{%  endblock  %}
+
+{% block content %}
+
+
+    <hr>
+    <h3> Информация об  актере:</h3>
+    <h3> Имя {{ actor.first_name }}</h3>
+    <h3> Фамилия {{ actor.last_name }}</h3>
+
+    <hr>
+
+
+    <hr>
+    <h3> Список фильмов:</h3>
+    <ul>
+        {% for movie_a in actor.movie_set.all %}
+            <li> {{ movie_a }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
