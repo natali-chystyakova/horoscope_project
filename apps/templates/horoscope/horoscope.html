@@ -1,0 +1,23 @@
+{% extends "_helpers/_base.html" %}
+{% load static %}
+
+{% block css_additional %}
+    <link
+            href="{% static "horoscope/css/horoscope.css" %}"
+            rel="stylesheet"
+    >
+{% endblock %}
+
+{%  block title %}
+
+    Horoscope for {{ sign| upper }}
+{%  endblock  %}
+
+{% block content %}
+{#<h1>Horoscope</h1>#}
+{#<p>Enter the name of your zodiac sign</p>#}
+    <h1> {{ sign_name }}</h1>
+    <h2><p>{{ description_zodiac }}</p></h2>
+    <p>{{ my_class }}</p>
+    <p>{{ my_class.age }}</p>
+{% endblock content %}

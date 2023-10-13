@@ -1,0 +1,36 @@
+{% extends "_helpers/_base.html" %}
+{% load static %}
+
+{%  block title %}
+
+    Movie {{ movie.name }}
+{%  endblock  %}
+
+{% block content %}
+
+    <h2>Информация о фильме {{ movie.name }}</h2>
+    <h3>Rating - {{ movie.rating }}</h3>
+    <h3>Budget - {{ movie.budget }}</h3>
+    <h3>Year - {{ movie.year }}</h3>
+    <hr>
+    <h3> Информация о режиссере:</h3>
+    <h3> Имя {{ movie.director.first_name }}</h3>
+    <h3> Фамилия {{ movie.director.last_name }}</h3>
+    <h3> Почта {{ movie.director.director_email }}</h3>
+    <hr>
+    <h3> Список актеров:</h3>
+    <ul>
+        {% for actor in movie.actors.all %}
+            <li> {{ actor }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+    <h3> Список фильмов:</h3>
+    <ul>
+        {% for movie_d in movie.director.movie_set.all %}
+            <li> {{ movie_d }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
